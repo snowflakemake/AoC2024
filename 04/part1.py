@@ -45,7 +45,7 @@ def RotateMatrix90(matrix):
         rotatedMatrix.append(column[::-1])
     return rotatedMatrix
 
-def RotateMatrix45(matrix, count=1):
+def RotateMatrix45(matrix):
     """
     Groups matrix elements into diagonals (Rotating 45 degrees).
     """
