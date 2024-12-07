@@ -1,2 +1,0 @@
-1. A wall can be placed in front of the guard, if the guard has passed the spot its on earlier with the direction to the right. #Implemented
-2. It is also possible, if the guard can turn and get on a path that he has already travelled on. #TODO
