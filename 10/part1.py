@@ -6,7 +6,7 @@ class TrailHead:
 
 heads = []
 map = []
-with open("09/small_input.txt", "r") as f:
+with open("10/small_input.txt", "r") as f:
     lines = f.readlines()
     for row, line in enumerate(lines):
         line = line.strip()
