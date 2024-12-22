@@ -1,3 +1,7 @@
+
+    """
+    NOT WORKING!!
+    """
 map = []
 areas = {}
 visited_coords = set()  # Use a set for global visited coordinates
@@ -56,35 +60,8 @@ class Area:
         return self.perimeter
 
     def calculateSides(self, map):
-        visited_sides = set()  # To track unique sides
-        directions = [(-1, 0), (0, -1), (1, 0), (0, 1)]  # Up, Left, Down, Right
-        
-        def trace_side(start, direction):
-            """Trace a continuous side starting from a boundary."""
-            side = set()  # Track all cells contributing to this side
-            current = start
-            while True:
-                side.add(current)
-                next_row, next_col = current[0] + direction[0], current[1] + direction[1]
-                if (next_row, next_col) not in self.all_coords:  # Hit boundary or different region
-                    break
-                current = (next_row, next_col)
-            return side
-
-        for coord in self.all_coords:
-            row, col = coord
-            for dir in directions:
-                next_row = row + dir[0]
-                next_col = col + dir[1]
-                
-                # If boundary or different region
-                if not (0 <= next_row < len(map) and 0 <= next_col < len(map[0])) or map[next_row][next_col] != self.code:
-                    start_edge = (row, col, dir)  # Boundary start and direction
-                    if start_edge not in visited_sides:
-                        side = trace_side((row, col), dir)
-                        visited_sides.update(side)  # Mark side as visited
-
-        self.sides = len(visited_sides)
+        # Calculate the corners
+        self.sides = self.calculateCorners(map)
         return self.sides
 
 # Read the map from the file
